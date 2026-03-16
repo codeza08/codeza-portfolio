@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Codeza - Crecimiento Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+        a { color: #0073e6; text-decoration: none; }
+        /* Cabecera / Portada */
+        header {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 4em;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+        header p.subtitle {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+        /* Secciones */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #000;
+        }
+        /* Tarjetas (Services y Portfolio) */
+        .services, .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .card {
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 280px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        /* Contacto */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-links a.btn {
+            background: #0073e6;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .services, .portfolio, .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CODEZA</h1>
+    <p class="subtitle">Ayudamos a negocios a crecer online</p>
+</header>
+
+<section id="about">
+    <h2>Sobre Codeza</h2>
+    <p>En Codeza ofrecemos soluciones digitales integrales para ayudarte a destacar en el mundo online. Nos especializamos en optimizar tu presencia en Instagram y en crear páginas web atractivas y funcionales. Trabajamos para que cada proyecto sea único y adaptado a tu marca, con el objetivo de obtener resultados reales. Confía en Codeza para darle a tu empresa la visibilidad y profesionalismo que merece.</p>
+</section>
+
+<section id="services">
+    <h2>Nuestros Servicios</h2>
+    <div class="services">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Diseno+Web" alt="Diseño Web">
+            <h3>Diseño de Páginas Web</h3>
+            <p>Desarrollo de sitios web rápidos, seguros y con diseño profesional. Nos encargamos de cada detalle para que tu página refleje la esencia de tu marca y convierta visitantes en clientes.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Instagram" alt="Optimización Instagram">
+            <h3>Optimización de Instagram</h3>
+            <p>Potencia tu presencia en Instagram con estrategias de contenido, branding y crecimiento de seguidores. Crearemos un perfil atractivo y eficiente que conecte con tu audiencia.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Landing+Page" alt="Landing Pages">
+            <h3>Landing Pages</h3>
+            <p>Páginas de aterrizaje diseñadas para campañas específicas. Atraen y retienen la atención de tu audiencia, facilitando que los visitantes realicen la acción que deseas (registrarse, comprar, etc.).</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h2>Nuestro Trabajo</h2>
+    <div class="portfolio">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Instagram+Antes+Despues" alt="Proyecto Instagram">
+            <h3>Instagram Antes y Después</h3>
+            <p>Ejemplo de un perfil de Instagram mejorado. En el antes se ve un perfil sin estrategia, y en el después, un feed organizado y profesional que atrae clientes.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Sitio+Web+Ejemplo" alt="Proyecto Web">
+            <h3>Sitio Web Ejemplo</h3>
+            <p>Diseño de un sitio web simple y efectivo. Muestra cómo un sitio bien estructurado puede dar una gran presencia online y facilitar la navegación del usuario.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150?text=Landing+Page+Ejemplo" alt="Proyecto Landing Page">
+            <h3>Landing Page Ejemplo</h3>
+            <p>Creación de una landing page para una campaña puntual. Destaca por su llamada a la acción clara y un diseño centrado en convertir visitantes en suscriptores o clientes.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contacto</h2>
+    <p>Escríbenos o síguenos para empezar tu proyecto digital:</p>
+    <div class="contact-links">
+        <a href="https://instagram.com/tuusuario" target="_blank" class="btn">Instagram</a>
+        <a href="https://tiktok.com/@tuusuario" target="_blank">TikTok</a>
+        <a href="mailto:tuemail@example.com">Email</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 CODEZA. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

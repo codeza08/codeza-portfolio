@@ -18,12 +18,25 @@
 
         /* Cabecera / Portada */
         header {
-            background: #000 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="5" cy="5" r="1" fill="white"/><circle cx="50" cy="50" r="1" fill="white"/><circle cx="80" cy="20" r="1" fill="white"/></svg>') repeat;
+            background: #000;
             color: #fff;
             text-align: center;
             padding: 120px 20px;
             position: relative;
             overflow: hidden;
+        }
+        header canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0;
+        }
+        header h1, header p.subtitle {
+            position: relative;
+            z-index: 1;
         }
         header h1 {
             margin: 0;
@@ -179,6 +192,7 @@
 <body>
 
 <header>
+    <canvas id="stars"></canvas>
     <h1>CODEZA</h1>
     <p class="subtitle">Ayudamos a negocios a crecer online</p>
 </header>
@@ -261,6 +275,48 @@
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
+
+    // Estrellas animadas header
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let w, h;
+
+    function initStars() {
+        w = canvas.width = header.offsetWidth;
+        h = canvas.height = header.offsetHeight;
+        stars = [];
+        for(let i=0;i<100;i++){
+            stars.push({
+                x: Math.random()*w,
+                y: Math.random()*h,
+                r: Math.random()*1.5+0.5,
+                dx: (Math.random()-0.5)*0.2,
+                dy: (Math.random()-0.5)*0.2
+            });
+        }
+    }
+
+    function animateStars() {
+        ctx.clearRect(0,0,w,h);
+        stars.forEach(s => {
+            s.x += s.dx;
+            s.y += s.dy;
+            if(s.x<0) s.x=w;
+            if(s.x>w) s.x=0;
+            if(s.y<0) s.y=h;
+            if(s.y>h) s.y=0;
+            ctx.beginPath();
+            ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        });
+        requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', initStars);
+    initStars();
+    animateStars();
 </script>
 
 </body>

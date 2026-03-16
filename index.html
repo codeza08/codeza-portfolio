@@ -21,7 +21,7 @@
             background: #000;
             color: #fff;
             text-align: center;
-            padding: 120px 20px;
+            padding: 200px 20px; /* fondo negro más alto */
             position: relative;
             overflow: hidden;
         }
@@ -40,7 +40,7 @@
         }
         header h1 {
             margin: 0;
-            font-size: 6em;
+            font-size: 5em; /* letras un poco más pequeñas */
             font-weight: bold;
             letter-spacing: 6px;
             opacity: 0;
@@ -49,7 +49,7 @@
         }
         header p.subtitle {
             margin-top: 20px;
-            font-size: 2em;
+            font-size: 1.8em;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease 0.3s;
@@ -181,7 +181,7 @@
                 align-items: center;
             }
             header h1 {
-                font-size: 4em;
+                font-size: 3.5em;
             }
             header p.subtitle {
                 font-size: 1.5em;
@@ -264,7 +264,7 @@
 </footer>
 
 <script>
-    // Animaciones al hacer scroll
+    // Animaciones fade-in
     const elements = document.querySelectorAll('header h1, header p.subtitle, section, .contact-box');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -273,12 +273,12 @@
             }
         });
     }, { threshold: 0.2 });
-
     elements.forEach(el => observer.observe(el));
 
     // Estrellas animadas header
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
+    const header = document.querySelector('header');
     let stars = [];
     let w, h;
 

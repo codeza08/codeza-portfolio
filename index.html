@@ -11,8 +11,11 @@
             font-family: Arial, sans-serif;
             background-color: #fff;
             color: #000;
+            scroll-behavior: smooth;
         }
-        a { color: #0073e6; text-decoration: none; }
+        a { color: #0073e6; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #005bb5; }
+
         /* Cabecera / Portada */
         header {
             background: #000;
@@ -25,22 +28,33 @@
             font-size: 4em;
             font-weight: bold;
             letter-spacing: 4px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 1s ease;
         }
         header p.subtitle {
             margin-top: 10px;
             font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease 0.3s;
         }
+
         /* Secciones */
         section {
             max-width: 1000px;
             margin: auto;
             padding: 60px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
         }
         h2 {
             text-align: center;
             margin-bottom: 40px;
             color: #000;
         }
+
         /* Tarjetas (Services y Portfolio) */
         .services, .portfolio {
             display: flex;
@@ -55,33 +69,87 @@
             padding: 20px;
             flex: 1 1 280px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         .card img {
             max-width: 100%;
             border-radius: 5px;
             margin-bottom: 15px;
         }
+
         /* Contacto */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-image img {
+            max-width: 250px;
+            border-radius: 10px;
+        }
+        .contact-text {
+            max-width: 600px;
+        }
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 20px;       
+            margin-top: 60px;
+            width: 100%;
         }
         .contact-links a.btn {
             background: #0073e6;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
         }
+        .contact-links a.btn:hover {
+            background: #005bb5;
+            transform: translateY(-5px);
+        }
+
         footer {
             background: #000;
             color: #fff;
             text-align: center;
             padding: 20px;
         }
+
+        /* Animaciones */
+        .fade-in {
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+        }
+
         /* Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .contact-text {
+                max-width: 100%;
+            }
+            .contact-links {
+                margin-top: 40px;
+            }
+            .contact-links a.btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
         @media (max-width: 600px) {
             .services, .portfolio, .contact-links {
                 flex-direction: column;
@@ -153,61 +221,29 @@
             <div class="contact-links">
                 <a href="https://www.instagram.com/codeza08/" target="_blank" class="btn">Instagram</a>
                 <a href="https://tiktok.com/@codeza08" target="_blank" class="btn">TikTok</a>
-               <a href="mailto:contact.codeza08@gmail.com?subject=Consulta%20desde%20portfolio&body=Hola,%20quiero%20saber%20más%20sobre%20Codeza." class="btn">Mail</a>
+                <a href="mailto:contact.codeza08@gmail.com?subject=Consulta%20desde%20portfolio&body=Hola,%20quiero%20saber%20más%20sobre%20Codeza." class="btn">Mail</a>
             </div>
         </div>
     </div>
 </section>
 
-<style>
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; /* Alinea la imagen con el texto */
-    gap: 30px;
-    justify-content: center;
-    margin-top: 20px;
-}
-.contact-image img {
-    max-width: 250px;
-    border-radius: 10px;
-}
-.contact-text {
-    max-width: 600px;
-}
-.contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;       
-    margin-top: 60px; /* Espacio suficiente debajo de todo el contenido */
-    width: 100%;       /* Fuerza que los botones estén debajo de la imagen/texto */
-}
-.contact-links a.btn {
-    background: #0073e6;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-}
+<footer>
+    <p>&copy; 2026 Codeza. Todos los derechos reservados.</p>
+</footer>
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .contact-text {
-        max-width: 100%;
-    }
-    .contact-links {
-        margin-top: 40px; /* Ajuste para móviles */
-    }
-    .contact-links a.btn {
-        width: 80%;
-        margin-bottom: 10px;
-    }
-}
-</style>
+<script>
+    // Animaciones al hacer scroll
+    const elements = document.querySelectorAll('header h1, header p.subtitle, section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -143,58 +143,67 @@
 
 <section id="contact">
     <h2>Contacto</h2>
+    <div class="contact-container">
         <div class="contact-image">
             <img src="https://via.placeholder.com/250x250?text=Contacto" alt="Contacto">
         </div>
         <div class="contact-text">
             <p>Escríbenos o síguenos para empezar tu proyecto digital:</p>
             <p>Estamos disponibles para ayudarte a crecer online, resolver tus dudas y guiarte en cada paso para que tu presencia digital sea profesional y efectiva. ¡No esperes más para potenciar tu negocio!</p>
-            </div>
             <div class="contact-links">
                 <a href="https://instagram.com/tuusuario" target="_blank" class="btn">Instagram</a>
                 <a href="https://tiktok.com/@tuusuario" target="_blank" class="btn">TikTok</a>
                 <a href="mailto:tuemail@example.com" class="btn">Email</a>
+            </div>
         </div>
+    </div>
 </section>
-        
+
 <style>
-    /* Estilos para la sección de contacto con imagen y texto lado a lado */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.contact-image img {
+    max-width: 250px;
+    border-radius: 10px;
+}
+.contact-text {
+    max-width: 600px;
+}
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;       /* espacio entre botones */
+    margin-top: 25px; /* espacio del texto de arriba */
+}
+.contact-links a.btn {
+    background: #0073e6;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
     .contact-container {
-        display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         align-items: center;
-        gap: 30px;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .contact-image img {
-        max-width: 250px;
-        border-radius: 10px;
+        text-align: center;
     }
     .contact-text {
-        max-width: 600px;
+        max-width: 100%;
     }
     .contact-links a.btn {
-        background: #0073e6;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        display: inline-block;
+        width: 80%;
+        margin-bottom: 10px;
     }
-    /* Responsive: en móviles, la imagen va arriba y texto abajo */
-    @media (max-width: 768px) {
-        .contact-container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .contact-text {
-            max-width: 100%;
-        }
-        .contact-links a.btn {
-            width: 80%;
-            margin-bottom: 10px;
-        }
-    }
+}
 </style>

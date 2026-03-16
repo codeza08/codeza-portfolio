@@ -18,23 +18,25 @@
 
         /* Cabecera / Portada */
         header {
-            background: #000;
+            background: #000 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="5" cy="5" r="1" fill="white"/><circle cx="50" cy="50" r="1" fill="white"/><circle cx="80" cy="20" r="1" fill="white"/></svg>') repeat;
             color: #fff;
             text-align: center;
-            padding: 80px 20px;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
         }
         header h1 {
             margin: 0;
-            font-size: 4em;
+            font-size: 6em;
             font-weight: bold;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             opacity: 0;
             transform: translateY(-20px);
             transition: all 1s ease;
         }
         header p.subtitle {
-            margin-top: 10px;
-            font-size: 1.5em;
+            margin-top: 20px;
+            font-size: 2em;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease 0.3s;
@@ -94,15 +96,28 @@
             max-width: 250px;
             border-radius: 10px;
         }
-        .contact-text {
+
+        .contact-box {
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 30px 20px;
             max-width: 600px;
+            flex: 1 1 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        .contact-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;       
-            margin-top: 60px;
+            margin-top: 30px;
             width: 100%;
         }
         .contact-links a.btn {
@@ -139,11 +154,8 @@
                 align-items: center;
                 text-align: center;
             }
-            .contact-text {
+            .contact-box {
                 max-width: 100%;
-            }
-            .contact-links {
-                margin-top: 40px;
             }
             .contact-links a.btn {
                 width: 80%;
@@ -154,6 +166,12 @@
             .services, .portfolio, .contact-links {
                 flex-direction: column;
                 align-items: center;
+            }
+            header h1 {
+                font-size: 4em;
+            }
+            header p.subtitle {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -215,7 +233,7 @@
         <div class="contact-image">
             <img src="https://raw.githubusercontent.com/codeza08/codeza-portfolio/7c0409e5a41ed76196773d7a122b5fe4d3e152e6/IMAGENllogo.png" alt="Contacto">
         </div>
-        <div class="contact-text">
+        <div class="contact-box">
             <p>Escríbenos o síguenos para empezar tu proyecto digital:</p>
             <p>Estamos disponibles para ayudarte a crecer online, resolver tus dudas y guiarte en cada paso para que tu presencia digital sea profesional y efectiva. ¡No esperes más para potenciar tu negocio!</p>
             <div class="contact-links">
@@ -233,7 +251,7 @@
 
 <script>
     // Animaciones al hacer scroll
-    const elements = document.querySelectorAll('header h1, header p.subtitle, section');
+    const elements = document.querySelectorAll('header h1, header p.subtitle, section, .contact-box');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
